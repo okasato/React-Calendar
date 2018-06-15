@@ -1,0 +1,37 @@
+{
+  "name": "React-Calendar",
+  "version": "1.0.0",
+  "description": "React Calender",
+  "main": "index.js",
+  "scripts": {
+    "hack": "webpack-dev-server --module-bind 'js=babel-loader' --module-bind 'jsx=babel-loader' --resolve-extensions .js,.jsx --mode development --entry ./src --output dist/bundle.js --open",
+    "build": "webpack --module-bind 'js=babel-loader' --module-bind 'jsx=babel-loader' --resolve-extensions .js,.jsx --mode production --entry ./src --output dist/bundle.js",
+    "watch": "webpack --module-bind 'js=babel-loader' --module-bind 'jsx=babel-loader' --resolve-extensions .js,.jsx --mode production --entry ./src --output dist/bundle.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okasato/React-Calendar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okasato/React-Calendar/issues"
+  },
+  "homepage": "https://github.com/okasato/React-Calendar#readme",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.7",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
