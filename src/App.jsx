@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import Week from './Week';
+import Days from './Days';
 
 export default class App extends Component{
   constructor(props){
@@ -8,7 +11,9 @@ export default class App extends Component{
   render(){
     return (
       <div className='app'>
-          Hello React 
+        <Header />
+        <Week />
+        <Days />
       </div>
     )
   }
