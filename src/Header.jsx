@@ -26,9 +26,10 @@ export default class Header extends Component{
 
   render(){
     return (
-      <div className='header'>
-        <div>{this.props.year}</div>
-        <div>{this.getNameOfMonth(this.props.month)}</div> 
+      <div className='header' style={{display: 'flex'}}>
+        <div>{this.getNameOfMonth(this.props.month)}</div>
+        <span style={{marginRight: '0.5em'}}></span>
+        <div>{this.props.year}</div> 
       </div>
     )
   }
