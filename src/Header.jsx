@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-export default class Header extends Component{
-  constructor(props){
+export default class Header extends Component {
+  constructor(props) {
     super(props)
     this.getNameOfMonth = this.getNameOfMonth.bind(this);
   }
@@ -24,12 +24,11 @@ export default class Header extends Component{
     return nameOfMonths[month];
   }
 
-  render(){
+  render() {
     return (
-      <div className='header' style={{display: 'flex'}}>
-        <div>{this.getNameOfMonth(this.props.month)}</div>
-        <span style={{marginRight: '0.5em'}}></span>
-        <div>{this.props.year}</div> 
+      <div className='header' id='header-position'>
+          <div>{this.getNameOfMonth(this.props.month)}</div>
+          <div>{this.props.year}</div>
       </div>
     )
   }

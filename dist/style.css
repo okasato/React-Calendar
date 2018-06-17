@@ -1,0 +1,41 @@
+.app {
+  text-align: center
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+}
+
+.previous {
+  order: 1;
+  position: relative;
+  left: -65px;
+}
+
+.next {
+  order: 3;
+  position: relative;
+  left: 65px;
+}
+
+.header {
+  order: 2;
+}
+
+#header-position {
+  display: flex
+}
+
+span {
+  margin-right: '0.5em'
+}
+
+table {
+  margin: 0 auto;
+}
+
+.day:hover {
+  background-color: blue;
+  color: white
+}

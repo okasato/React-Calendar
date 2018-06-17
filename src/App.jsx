@@ -47,9 +47,9 @@ export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        <div style={{ display: 'flex'}}>
-          <button onClick={this.handleClickPrevious}>{'<'}</button>
-          <button onClick={this.handleClickNext}>{'>'}</button>
+        <div className='top'>
+          <button className='previous' onClick={this.handleClickPrevious}>{'<'}</button>
+          <button className='next' onClick={this.handleClickNext}>{'>'}</button>
           <Header
             year={this.state.year}
             month={this.state.month}

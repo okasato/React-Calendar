@@ -7,8 +7,8 @@ export default class Days extends Component {
   }
 
   createTable(year, month) {
-    const startDate = new Date(year, month, 1);//June 1st 2018
-    const endDate = new Date(year, month + 1, 0);//June 30th 2018
+    const startDate = new Date(year, month, 1);//e.g. June 1st 2018
+    const endDate = new Date(year, month + 1, 0);//e.g. June 30th 2018
     const numberOfWeeks = Math.ceil(((endDate - startDate) / (24 * 3600 * 1000) + 1) / 7) + 1;
     
     const table = [];
@@ -43,7 +43,7 @@ export default class Days extends Component {
               <tr>
                 {line.map(day => {
                   return (
-                    <td>{day}</td>
+                    <td className='day'>{day}</td>
                   )
                 })}
               </tr>
