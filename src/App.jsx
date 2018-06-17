@@ -13,12 +13,21 @@ export default class App extends Component {
     this.handleClickNext = this.handleClickNext.bind(this);
     this.handleClickPrevious = this.handleClickPrevious.bind(this);
   }
-  
+
   handleClickPrevious() {
     const currentMonth = this.state.month;
     this.setState({
       month: currentMonth - 1
     });
+    
+    console.log('@@@@@@@@@@@@@@@@@@', this.state.month);
+    if (this.state.month < 0) {
+      const currentYear = this.state.year;
+      this.setState({
+        month: 11,
+        year: currentYear - 1
+      })
+    }
   }
 
   handleClickNext() {
@@ -26,8 +35,16 @@ export default class App extends Component {
     this.setState({
       month: currentMonth + 1
     });
+    
+    console.log('@@@@@@@@@@@@@@@@@@', this.state.month);
+    if (this.state.month > 11) {
+      const currentYear = this.state.year;
+      this.setState({
+        month: 0,
+        year: currentYear + 1
+      })
+    }
   }
-
 
   render() {
     return (

@@ -9,7 +9,7 @@ export default class Days extends Component {
   createTable(year, month) {
     const startDate = new Date(year, month, 1);//June 1st 2018
     const endDate = new Date(year, month + 1, 0);//June 30th 2018
-    const numberOfWeeks = Math.ceil(((endDate - startDate) / (24 * 3600 * 1000) + 1) / 7);
+    const numberOfWeeks = Math.ceil(((endDate - startDate) / (24 * 3600 * 1000) + 1) / 7) + 1;
     
     const table = [];
     for (let i = 0; i < numberOfWeeks; i += 1) {
@@ -19,7 +19,7 @@ export default class Days extends Component {
           table[i].push(startDate.getDate());
           startDate.setDate(startDate.getDate() + 1);
         } else {
-          table[i].push(0);
+          table[i].push(null);
         }
       }
     }
