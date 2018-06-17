@@ -3,15 +3,11 @@ import React, { Component } from 'react';
 export default class Header extends Component{
   constructor(props){
     super(props)
-    this.state = {
-      year: new Date().getFullYear(),
-      month: new Date().getMonth(),
-    }
-    this.getMonth = this.getMonth.bind(this);
+    this.getNameOfMonth = this.getNameOfMonth.bind(this);
   }
 
-  getMonth(month) {
-    const months = {
+  getNameOfMonth(month) {
+    const nameOfMonths = {
       0: 'January',
       1: 'February',
       2: 'March',
@@ -25,14 +21,14 @@ export default class Header extends Component{
       10: 'Novemver',
       11: 'December'
     };
-    return months[month];
+    return nameOfMonths[month];
   }
 
   render(){
     return (
       <div className='header'>
-        <div>{this.state.year}</div>
-        <div>{this.getMonth(this.state.month)}</div> 
+        <div>{this.props.year}</div>
+        <div>{this.getNameOfMonth(this.props.month)}</div> 
       </div>
     )
   }

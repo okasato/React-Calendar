@@ -1,33 +1,63 @@
 import React, { Component } from 'react';
 
-export default class Days extends Component{
-  constructor(props){
+export default class Days extends Component {
+  constructor(props) {
     super(props)
-    this.createTable = this.createTable.bind(this); 
+    this.createTable = this.createTable.bind(this);
   }
-  
-  createTable(numberOfWeeks) {
+
+  createTable(year, month) {
+    const startDate = new Date(year, month, 1);//June 1st 2018
+    const endDate = new Date(year, month + 1, 0);//June 30th 2018
+    const numberOfWeeks = Math.ceil(((endDate - startDate) / (24 * 3600 * 1000) + 1) / 7);
+    
     const table = [];
-    for (let i = 0; i <= numberOfWeeks; i += 1) {
+    for (let i = 0; i < numberOfWeeks; i += 1) {
       table.push([]);
       for (let j = 0; j < 7; j += 1) {
-        table[i].push(0);
+        if (startDate.getMonth() === month && j === startDate.getDay()) {
+          table[i].push(startDate.getDate());
+          startDate.setDate(startDate.getDate() + 1);
+        } else {
+          table[i].push(0);
+        }
       }
     }
-    const startDate = new Date(2018, 6-1, 1);
-    const endDate = new Date(2018, 6, 0);
-    // startDate.getDate();
-    // startDate.getDay();
 
-    startDate.setDate(start.getDate() + 1);
-    table[i][startDate.getDay()] = startDate.getDate();
-    return table;
+    const dayOfWeeks = ['SUN', 'MON', 'TUE', 'WED', 'THR', 'FRI', 'SAT'];
+
+    return (
+      <table>
+        <thead>
+          <tr>
+            {dayOfWeeks.map(dayOfWeek => {
+              return (
+                <th>{dayOfWeek}</th>
+              )
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {table.map(line => {
+            return (
+              <tr>
+                {line.map(day => {
+                  return (
+                    <td>{day}</td>
+                  )
+                })}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    );
   }
 
-  render(){
+  render() {
     return (
       <div className='days'>
-        {this.createTable(5)}
+        {this.createTable(this.props.year, this.props.month)}
       </div>
     )
   }

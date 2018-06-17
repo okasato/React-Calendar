@@ -8,7 +8,7 @@ export default class Week extends Component{
   render(){
     return (
       <div className='week'>
-        SUN, MON, TUE, WED, THR, FRI, SAT 
+        SUN, MON, TUE, WED, THR, FRI, SAT
       </div>
     )
   }
