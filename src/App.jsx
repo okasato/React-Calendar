@@ -19,9 +19,8 @@ export default class App extends Component {
     this.setState({
       month: currentMonth - 1
     });
-    
-    console.log('@@@@@@@@@@@@@@@@@@', this.state.month);
-    if (this.state.month < 0) {
+
+    if (this.state.month < 1) {
       const currentYear = this.state.year;
       this.setState({
         month: 11,
@@ -36,8 +35,7 @@ export default class App extends Component {
       month: currentMonth + 1
     });
     
-    console.log('@@@@@@@@@@@@@@@@@@', this.state.month);
-    if (this.state.month > 11) {
+    if (this.state.month > 10) {
       const currentYear = this.state.year;
       this.setState({
         month: 0,
