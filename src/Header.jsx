@@ -27,8 +27,8 @@ export default class Header extends Component {
   render() {
     return (
       <div className='header' id='header-position'>
-          <div>{this.getNameOfMonth(this.props.month)}</div>
-          <div>{this.props.year}</div>
+          <div className='header-month'>{this.getNameOfMonth(this.props.month)}</div>
+          <div className='header-year'>{this.props.year}</div>
       </div>
     )
   }
