@@ -10,13 +10,13 @@
 .previous {
   order: 1;
   position: relative;
-  left: -65px;
+  left: -60px;
 }
 
 .next {
   order: 3;
   position: relative;
-  left: 65px;
+  left: 60px;
 }
 
 .header {
@@ -24,21 +24,23 @@
 }
 
 #header-position {
-  display: flex
+  display: flex;
+  width: 75px;
 }
 
-span {
-  margin-right: '0.5em'
+#header-position:hover {
+  background-color: grey;
+  color: white
 }
 
 .header-month {
   position: relative;
-  right: 5px;
+  left: 5px;
 }
 
 .header-year {
   position: relative;
-  left: 5px;
+  left: 10px;
 }
 
 table {

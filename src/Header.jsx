@@ -4,6 +4,7 @@ export default class Header extends Component {
   constructor(props) {
     super(props)
     this.getNameOfMonth = this.getNameOfMonth.bind(this);
+    this.handleClickMonths = this.handleClickMonths.bind(this);
   }
 
   getNameOfMonth(month) {
@@ -24,11 +25,18 @@ export default class Header extends Component {
     return nameOfMonths[month];
   }
 
+  handleClickMonths(e) {
+    e.preventDefault();
+    console.log('hey');
+  }
+
   render() {
     return (
-      <div className='header' id='header-position'>
+      <div className='header'>
+        <div onClick={this.handleClickMonths} id='header-position'>
           <div className='header-month'>{this.getNameOfMonth(this.props.month)}</div>
           <div className='header-year'>{this.props.year}</div>
+        </div>
       </div>
     )
   }
