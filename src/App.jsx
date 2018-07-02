@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import Week from './Week';
+import Months from './Months';
 import Days from './Days';
 
 export default class App extends Component {
@@ -9,9 +9,36 @@ export default class App extends Component {
     this.state = {
       year: new Date().getFullYear(),
       month: new Date().getMonth(),
+      currentView: 'calendar',
+      arrayOfMonths: [
+        ['January', 'February', 'March'],
+        ['April', 'May', 'June'],
+        ['July', 'August', 'September'],
+        ['October', 'Novemver', 'December']
+      ]      
     }
+    this.changeCurrentView = this.changeCurrentView.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
     this.handleClickPrevious = this.handleClickPrevious.bind(this);
+  }
+
+  changeCurrentView(currentView) {
+    this.setState({
+      currentView
+    })
+  }
+
+  get currentView() {
+    if (this.state.currentView === 'calendar') {
+      return <Days
+        year={this.state.year}
+        month={this.state.month}
+      />
+    } else if (this.state.currentView === 'months'){
+      return <Months
+        arrayOfMonths={this.state.arrayOfMonths}
+      />
+    }    
   }
 
   handleClickPrevious() {
@@ -45,6 +72,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state.currentView);
     return (
       <div className='app'>
         <div className='top'>
@@ -53,12 +81,11 @@ export default class App extends Component {
           <Header
             year={this.state.year}
             month={this.state.month}
+            currentView={this.state.currentView}
+            changeCurrentView={this.changeCurrentView}
           />
         </div>
-        <Days
-          year={this.state.year}
-          month={this.state.month}
-        />
+        {this.currentView}
       </div>
     )
   }

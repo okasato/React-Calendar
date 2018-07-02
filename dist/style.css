@@ -42,11 +42,21 @@
   left: 70px;
 }
 
+.header-only-year {
+  position: relative;
+  left: 80px;
+}
+
 table {
   margin: 0 auto;
 }
 
 .day:hover {
+  background-color: blue;
+  color: white
+}
+
+.month:hover {
   background-color: blue;
   color: white
 }

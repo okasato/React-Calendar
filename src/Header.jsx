@@ -27,15 +27,31 @@ export default class Header extends Component {
 
   handleClickMonths(e) {
     e.preventDefault();
-    console.log('hey');
+    this.props.changeCurrentView('months');
+  }
+
+  get currentHeader() {
+    if (this.props.currentView === 'months') {
+      return (
+        <div id='header-position'>
+          <div className='header-only-year'>{this.props.year}</div>
+        </div>
+      )
+    } else {
+      return (
+        <div id='header-position'>
+          <div className='header-month'>{this.getNameOfMonth(this.props.month)}</div>
+          <div className='header-year'>{this.props.year}</div>
+        </div>
+      )
+    }
   }
 
   render() {
     return (
       <div className='header'>
-        <div onClick={this.handleClickMonths} id='header-position'>
-          <div className='header-month'>{this.getNameOfMonth(this.props.month)}</div>
-          <div className='header-year'>{this.props.year}</div>
+        <div onClick={this.handleClickMonths}>
+          {this.currentHeader}
         </div>
       </div>
     )
