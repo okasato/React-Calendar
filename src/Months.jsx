@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 export default class Months extends Component{
   constructor(props){
     super(props)
+    this.handleClickMonth = this.handleClickMonth.bind(this);
+  }
+
+  handleClickMonth() {
+    console.log('hey month');
   }
 
   render(){
@@ -18,7 +23,7 @@ export default class Months extends Component{
                 <tr>
                   {months.map(month => {
                     return (                      
-                      <td className='month'>{month}</td>
+                      <td className='month' onClick={this.handleClickMonth}>{month}</td>
                     )
                   })}
                 </tr>

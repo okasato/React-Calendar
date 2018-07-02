@@ -56,6 +56,10 @@ table {
   color: white
 }
 
+.month {
+  width: 85px;
+}
+
 .month:hover {
   background-color: blue;
   color: white
