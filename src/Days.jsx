@@ -30,10 +30,16 @@ export default class Days extends Component {
       <table>
         <thead>
           <tr>
-            {dayOfWeeks.map(dayOfWeek => {
-              return (
-                <th>{dayOfWeek}</th>
-              )
+            {dayOfWeeks.map((dayOfWeek, index) => {
+              if (index === 0 || index === 6) {
+                return (
+                  <th className='holidays'>{dayOfWeek}</th>                  
+                )
+              } else {
+                return (
+                  <th>{dayOfWeek}</th>
+                )
+              }
             })}
           </tr>
         </thead>
@@ -41,10 +47,20 @@ export default class Days extends Component {
           {table.map(line => {
             return (
               <tr>
-                {line.map(day => {
-                  return (
-                    <td className='day'>{day}</td>
-                  )
+                {line.map((day, index) => {
+                  if (index === 0 || index === 6) {
+                    return (
+                      <td className='day holidays'>{day}</td>
+                    )
+                  } else if (year === new Date().getFullYear() && month === new Date().getMonth() && day === new Date().getDate()) {
+                    return (
+                      <td className='day today'>{day}</td>
+                    )
+                  } else{
+                    return (
+                      <td className='day'>{day}</td>
+                    )
+                  }
                 })}
               </tr>
             )

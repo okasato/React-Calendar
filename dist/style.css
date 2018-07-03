@@ -96,3 +96,12 @@ th {
   background-color: blue;
   color: white
 }
+
+.holidays {
+  color: red;
+}
+
+.today {
+  background-color: gray;
+  color: white
+}
