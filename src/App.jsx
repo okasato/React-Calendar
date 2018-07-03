@@ -18,6 +18,7 @@ export default class App extends Component {
       ]      
     }
     this.changeCurrentView = this.changeCurrentView.bind(this);
+    this.changeCurrentYearAndMonth = this.changeCurrentYearAndMonth.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
     this.handleClickPrevious = this.handleClickPrevious.bind(this);
   }
@@ -25,11 +26,19 @@ export default class App extends Component {
   changeCurrentView(currentView) {
     this.setState({
       currentView
-    })
+    });
+  }
+
+  changeCurrentYearAndMonth(year, month) {
+    this.setState({
+      year,
+      month
+    });
   }
 
   get currentView() {
     if (this.state.currentView === 'calendar') {
+      console.log(this.state.year, this.state.month);
       return <Days
         year={this.state.year}
         month={this.state.month}
@@ -37,42 +46,59 @@ export default class App extends Component {
     } else if (this.state.currentView === 'months'){
       return <Months
         arrayOfMonths={this.state.arrayOfMonths}
+        changeCurrentView={this.changeCurrentView}
+        changeCurrentYearAndMonth={this.changeCurrentYearAndMonth}
+        year={this.state.year}
       />
     }    
   }
 
   handleClickPrevious() {
-    const currentMonth = this.state.month;
-    this.setState({
-      month: currentMonth - 1
-    });
-
-    if (this.state.month < 1) {
+    if (this.state.currentView === 'months') {
       const currentYear = this.state.year;
       this.setState({
-        month: 11,
         year: currentYear - 1
-      })
+      });
+    } else {      
+      const currentMonth = this.state.month;
+      this.setState({
+        month: currentMonth - 1
+      });
+  
+      if (this.state.month < 1) {
+        const currentYear = this.state.year;
+        this.setState({
+          month: 11,
+          year: currentYear - 1
+        })
+      }
     }
+
   }
 
   handleClickNext() {
-    const currentMonth = this.state.month;
-    this.setState({
-      month: currentMonth + 1
-    });
-    
-    if (this.state.month > 10) {
+    if (this.state.currentView === 'months') {
       const currentYear = this.state.year;
       this.setState({
-        month: 0,
         year: currentYear + 1
-      })
+      });
+    } else {
+      const currentMonth = this.state.month;
+      this.setState({
+        month: currentMonth + 1
+      });
+      
+      if (this.state.month > 10) {
+        const currentYear = this.state.year;
+        this.setState({
+          month: 0,
+          year: currentYear + 1
+        })
+      }
     }
   }
 
   render() {
-    console.log(this.state.currentView);
     return (
       <div className='app'>
         <div className='top'>
