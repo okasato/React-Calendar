@@ -17,19 +17,19 @@ export default class App extends Component {
         ['October', 'Novemver', 'December']
       ]      
     }
-    this.changeCurrentView = this.changeCurrentView.bind(this);
-    this.changeCurrentYearAndMonth = this.changeCurrentYearAndMonth.bind(this);
+    this.onChangeCurrentView = this.onChangeCurrentView.bind(this);
+    this.onChangeCurrentYearAndMonth = this.onChangeCurrentYearAndMonth.bind(this);
     this.handleClickNext = this.handleClickNext.bind(this);
     this.handleClickPrevious = this.handleClickPrevious.bind(this);
   }
 
-  changeCurrentView(currentView) {
+  onChangeCurrentView(currentView) {
     this.setState({
       currentView
     });
   }
 
-  changeCurrentYearAndMonth(year, month) {
+  onChangeCurrentYearAndMonth(year, month) {
     this.setState({
       year,
       month
@@ -38,7 +38,6 @@ export default class App extends Component {
 
   get currentView() {
     if (this.state.currentView === 'calendar') {
-      console.log(this.state.year, this.state.month);
       return <Days
         year={this.state.year}
         month={this.state.month}
@@ -46,8 +45,8 @@ export default class App extends Component {
     } else if (this.state.currentView === 'months'){
       return <Months
         arrayOfMonths={this.state.arrayOfMonths}
-        changeCurrentView={this.changeCurrentView}
-        changeCurrentYearAndMonth={this.changeCurrentYearAndMonth}
+        onChangeCurrentView={this.onChangeCurrentView}
+        onChangeCurrentYearAndMonth={this.onChangeCurrentYearAndMonth}
         year={this.state.year}
       />
     }    
@@ -108,7 +107,7 @@ export default class App extends Component {
             year={this.state.year}
             month={this.state.month}
             currentView={this.state.currentView}
-            changeCurrentView={this.changeCurrentView}
+            onChangeCurrentView={this.onChangeCurrentView}
           />
         </div>
         {this.currentView}

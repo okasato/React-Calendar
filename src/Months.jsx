@@ -28,8 +28,8 @@ export default class Months extends Component{
   handleClickMonth(e) {
     e.preventDefault();
     const numberOfChosenMonth = this.getNumberOfMonth(e.target.innerHTML); 
-    this.props.changeCurrentView('calendar');
-    this.props.changeCurrentYearAndMonth(this.props.year, numberOfChosenMonth);
+    this.props.onChangeCurrentView('calendar');
+    this.props.onChangeCurrentYearAndMonth(this.props.year, numberOfChosenMonth);
   }
 
   render(){

@@ -27,7 +27,7 @@ export default class Header extends Component {
 
   handleClickMonths(e) {
     e.preventDefault();
-    this.props.changeCurrentView('months');
+    this.props.onChangeCurrentView('months');
   }
 
   get currentHeader() {
