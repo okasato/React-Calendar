@@ -101,8 +101,10 @@ export default class App extends Component {
     return (
       <div className='app'>
         <div className='top'>
-          <button className='previous' onClick={this.handleClickPrevious}>{'<'}</button>
-          <button className='next' onClick={this.handleClickNext}>{'>'}</button>
+          {/* <button className='previous' onClick={this.handleClickPrevious}>{'<'}</button>
+          <button className='next' onClick={this.handleClickNext}>{'>'}</button> */}
+          <div className='previous' onClick={this.handleClickPrevious}>{'<'}</div>
+          <div className='next' onClick={this.handleClickNext}>{'>'}</div>
           <Header
             year={this.state.year}
             month={this.state.month}

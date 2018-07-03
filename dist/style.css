@@ -10,11 +10,25 @@
 .previous {
   order: 1;
   position: relative;
+  height: 20px;
+  padding: 5px 20px 5px 20px;
+}
+
+.previous:hover {
+  background-color: grey;
+  color: white;
 }
 
 .next {
   order: 3;
   position: relative;
+  height: 20px;
+  padding: 5px 20px 5px 20px;
+}
+
+.next:hover {
+  background-color: grey;
+  color: white;
 }
 
 .header {
@@ -23,8 +37,11 @@
 
 #header-position {
   display: flex;
-  width: 200px;
+  width: 300px;
+  height: 20px;
+  padding: 5px 0px 5px 0px;
   position: relative;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
 }
 
 #header-position:hover {
@@ -34,21 +51,36 @@
 
 .header-month {
   position: relative;
-  left: 50px;
+  width: 150px;
+  text-align: right;
 }
 
 .header-year {
   position: relative;
-  left: 70px;
+  width: 140px;
+  text-align: left;
+  margin-left: 10px;
 }
 
 .header-only-year {
   position: relative;
-  left: 80px;
+  width: 300px;
+  text-align: center;
+  /* left: 80px; */
 }
 
 table {
   margin: 0 auto;
+}
+
+td {
+  padding: 5px 15px 5px 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
+
+th {
+  padding: 5px 15px 5px 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
 }
 
 .day:hover {
@@ -57,7 +89,7 @@ table {
 }
 
 .month {
-  width: 85px;
+  width: 100px;
 }
 
 .month:hover {
