@@ -44,9 +44,15 @@ export default class Months extends Component{
               return (
                 <tr>
                   {months.map(month => {
-                    return (                      
-                      <td className='month' onClick={this.handleClickMonth}>{month}</td>
-                    )
+                    if (this.getNumberOfMonth(month) === new Date().getMonth()) {
+                      return (                      
+                        <td className='month thisMonth' onClick={this.handleClickMonth}>{month}</td>
+                      )
+                    } else {
+                      return (                      
+                        <td className='month' onClick={this.handleClickMonth}>{month}</td>
+                      )
+                    }
                   })}
                 </tr>
               )
