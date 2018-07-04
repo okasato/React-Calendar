@@ -44,7 +44,7 @@ export default class Months extends Component{
               return (
                 <tr>
                   {months.map(month => {
-                    if (this.getNumberOfMonth(month) === new Date().getMonth()) {
+                    if (this.props.year === new Date().getFullYear() && this.getNumberOfMonth(month) === new Date().getMonth()) {
                       return (                      
                         <td className='month thisMonth' onClick={this.handleClickMonth}>{month}</td>
                       )
