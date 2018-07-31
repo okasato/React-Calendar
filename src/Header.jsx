@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import TableCell from '@material-ui/core/TableCell';
 
-export default class Header extends Component {
+export default class CalendarHeader extends Component {
   constructor(props) {
     super(props)
     this.getNameOfMonth = this.getNameOfMonth.bind(this);
@@ -40,7 +41,7 @@ export default class Header extends Component {
     } else {
       return (
         <div id='header-position'>
-          <div className='header-month'>{this.getNameOfMonth(this.props.month)}</div>
+          <div className='header-month' numeric>{this.getNameOfMonth(this.props.month)}</div>
           <div className='header-year'>{this.props.year}</div>
         </div>
       )
@@ -49,11 +50,9 @@ export default class Header extends Component {
 
   render() {
     return (
-      <div className='header'>
-        <div onClick={this.handleClickMonths}>
-          {this.currentHeader}
-        </div>
-      </div>
+      <TableCell className='calendarHeader' onClick={this.handleClickMonths}>
+        {this.currentHeader}
+      </TableCell>
     )
   }
 }

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 export default class Months extends Component{
   constructor(props){
@@ -35,30 +39,35 @@ export default class Months extends Component{
   render(){
     return (
       <div className='months'>
-        <table>
-          <thead>
-            <tr></tr>
-          </thead>
-          <tbody>
+        <Table>
+          <TableBody>
             {this.props.arrayOfMonths.map(months => {
               return (
-                <tr>
+                <TableRow>
                   {months.map(month => {
                     if (this.props.year === new Date().getFullYear() && this.getNumberOfMonth(month) === new Date().getMonth()) {
                       return (                      
-                        <td className='month thisMonth' onClick={this.handleClickMonth}>{month}</td>
+                        <TableCell className='month-tableCell thisMonth'>
+                          <div className='month' onClick={this.handleClickMonth}>                            
+                            {month}
+                          </div>
+                        </TableCell>
                       )
                     } else {
                       return (                      
-                        <td className='month' onClick={this.handleClickMonth}>{month}</td>
+                        <TableCell className='month-tableCell'>
+                          <div className='month' onClick={this.handleClickMonth}>
+                            {month}
+                          </div>
+                        </TableCell>
                       )
                     }
                   })}
-                </tr>
+                </TableRow>
               )
             })}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
     )
   }

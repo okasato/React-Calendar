@@ -1,5 +1,13 @@
-.app {
-  text-align: center
+.calendar-paper {
+  margin: 0px 10px 0px 10px;
+}
+
+.calendar {
+  text-align: center;
+  background: linear-gradient(-45deg, rgba(44, 62, 80, .8), rgba(76, 161, 175, .8)) fixed;
+  background-size: cover;
+  height: 600px;
+  padding: 100px 0 0 0;
 }
 
 .top {
@@ -31,72 +39,6 @@
   color: white;
 }
 
-.header {
-  order: 2;
-}
-
-#header-position {
-  display: flex;
-  width: 300px;
-  height: 20px;
-  padding: 5px 0px 5px 0px;
-  position: relative;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-}
-
-#header-position:hover {
-  background-color: grey;
-  color: white;
-}
-
-.header-month {
-  position: relative;
-  width: 150px;
-  text-align: right;
-}
-
-.header-year {
-  position: relative;
-  width: 140px;
-  text-align: left;
-  margin-left: 10px;
-}
-
-.header-only-year {
-  position: relative;
-  width: 300px;
-  text-align: center;
-  /* left: 80px; */
-}
-
-table {
-  margin: 0 auto;
-}
-
-td {
-  padding: 5px 15px 5px 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-}
-
-th {
-  padding: 5px 15px 5px 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-}
-
-.day:hover {
-  background-color: blue;
-  color: white
-}
-
-.month {
-  width: 100px;
-}
-
-.month:hover {
-  background-color: blue;
-  color: white
-}
-
 .holidays {
   color: red;
 }
@@ -106,7 +48,54 @@ th {
   color: white
 }
 
+.chosenDay:hover {
+  background-color: blue;
+  color: white
+}
+
+.header-month {
+  position: relative;
+  margin-left: 40%;
+}
+
+.header-year {
+  position: relative;
+  margin-left: 10px;
+}
+
+.calendarHeader {
+  order: 2;
+}
+
+.calendarHeader:hover {
+  background-color: grey;
+  color: white;
+}
+
+#header-position {
+  display: flex;
+  padding: 5px 0px 5px 0px;
+  position: relative;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
+
+.header-only-year {
+  position: relative;
+  margin-left: 45%;
+}
+
+.month-tableCell:hover {
+  background-color: blue;
+  color: white
+} 
+
 .thisMonth {
   background-color: gray;
   color: white
 }
+
+.month {
+  width: 100px;
+  margin-left: 45%;
+}
+
