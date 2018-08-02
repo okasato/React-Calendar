@@ -1,64 +1,46 @@
 import React, { Component } from 'react';
-// import Modal from 'react-modal';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-// import Typography from '@material-ui/core/Typography/Typography';
-// import Button from '@material-ui/core/Button';
-// import Icon from "@material-ui/core/Icon";
-// import IconButton from "@material-ui/core/IconButton";
-// import ClassOfTheDay from './ClassOfTheDay';
+import ScheduleOfTheDay from './ScheduleOfTheDay';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 
 export default class Days extends Component {
   constructor(props) {
     super(props)
     this.state = {
       modalIsOpen: false,
-      classOfTheDay: 'loading...'
+      scheduleOfTheDay: 'loading...'
     };
 
     this.createTable = this.createTable.bind(this);
-    // this.openModal = this.openModal.bind(this, day);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.getClassInfo = this.getClassInfo.bind(this);
+    this.getScheduleInfo = this.getScheduleInfo.bind(this);
   }
 
-  getClassInfo(id) {
-    const classOfTheDay = {
-      22: 'holiday special',
-      24: 'Maternity Hula'
+  getScheduleInfo(id) {
+    //You can add fetch api here to get schedules for today from api you built.
+    //Of course, you need to set up backend (e.g. Node.js, Express and PostgreSQL). 
+    //The following variable: scheduleOfTheDay is a sample data. You enjoy BBQ every day.
+    const scheduleOfTheDay = {
+      1: 'BBQ', 2: 'BBQ', 3: 'BBQ', 4: 'BBQ', 5: 'BBQ', 6: 'BBQ', 7: 'BBQ', 8: 'BBQ', 9: 'BBQ', 10: 'BBQ',
+      11: 'BBQ', 12: 'BBQ', 13: 'BBQ', 14: 'BBQ', 15: 'BBQ', 16: 'BBQ', 17: 'BBQ', 18: 'BBQ', 19: 'BBQ', 20: 'BBQ',
+      21: 'BBQ', 22: 'BBQ', 23: 'BBQ', 24: 'BBQ', 25: 'BBQ', 26: 'BBQ', 27: 'BBQ', 28: 'BBQ', 29: 'BBQ', 30: 'BBQ', 31: 'BBQ'
     };
 
-    return classOfTheDay[id];
+    return scheduleOfTheDay[id];
   }
 
   openModal(day, e) {
     e.preventDefault();
-    // const classInfo = this.getClassInfo(e.target.innerHTML);
-    const classInfo = this.getClassInfo(day);
+    const scheduleInfo = this.getScheduleInfo(day);
     this.setState({
       modalIsOpen: true,
-      classOfTheDay: classInfo
+      scheduleOfTheDay: scheduleInfo
     });
-  }
-
-  afterOpenModal() {
-    // this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -68,8 +50,8 @@ export default class Days extends Component {
   }
 
   createTable(year, month) {
-    const startDate = new Date(year, month, 1);//e.g. June 1st 2018
-    const endDate = new Date(year, month + 1, 0);//e.g. June 30th 2018
+    const startDate = new Date(year, month, 1);
+    const endDate = new Date(year, month + 1, 0);
     const numberOfWeeks = Math.ceil(((endDate - startDate) / (24 * 3600 * 1000) + 1) / 7) + 1;
 
     const table = [];
@@ -114,12 +96,24 @@ export default class Days extends Component {
                       return (
                         <TableCell className='today chosenDay' numeric>
                           <div className='holidays' onClick={this.openModal.bind(this, day)}>{day}</div>
+                          <ScheduleOfTheDay 
+                            isOpen={this.state.modalIsOpen}
+                            onAfterOpen={this.afterOpenModal}
+                            onRequestClose={this.closeModal}
+                            scheduleOfTheDay={this.state.scheduleOfTheDay}
+                          />
                         </TableCell>
                       )
                     } else {
                       return (
                         <TableCell className='today chosenDay' numeric>
                           <div onClick={this.openModal.bind(this, day)}>{day}</div>
+                          <ScheduleOfTheDay 
+                            isOpen={this.state.modalIsOpen}
+                            onAfterOpen={this.afterOpenModal}
+                            onRequestClose={this.closeModal}
+                            scheduleOfTheDay={this.state.scheduleOfTheDay}
+                          />
                         </TableCell>
                       )
                     }
@@ -128,12 +122,23 @@ export default class Days extends Component {
                       return (
                         <TableCell className='chosenDay' numeric>
                           <div className='holidays' onClick={this.openModal.bind(this, day)}>{day}</div>
+                          <ScheduleOfTheDay 
+                            isOpen={this.state.modalIsOpen}
+                            onAfterOpen={this.afterOpenModal}
+                            onRequestClose={this.closeModal}
+                            scheduleOfTheDay={this.state.scheduleOfTheDay}
+                          />
                         </TableCell>
                       )
                     } else {
                       return (
                         <TableCell className='chosenDay' numeric>
                           <div onClick={this.openModal.bind(this, day)}>{day}</div>
+                          <ScheduleOfTheDay 
+                            isOpen={this.state.modalIsOpen}
+                            onRequestClose={this.closeModal}
+                            scheduleOfTheDay={this.state.scheduleOfTheDay}
+                          />
                         </TableCell>
                       )
                     }

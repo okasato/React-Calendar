@@ -4,7 +4,7 @@
 
 .calendar {
   text-align: center;
-  background: linear-gradient(-45deg, rgba(44, 62, 80, .8), rgba(76, 161, 175, .8)) fixed;
+  background: linear-gradient(-45deg, rgba(170, 7, 107, .7), rgba(97, 4, 95, .7)) fixed;
   background-size: cover;
   height: 550px;
   padding: 100px 0 0 0;
@@ -99,3 +99,6 @@
   margin-left: 45%;
 }
 
+.clear {
+  left: 80%;
+}
