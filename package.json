@@ -7,7 +7,7 @@
     "build": "webpack",
     "hack": "webpack && webpack-dev-server --inline",
     "postinstall": "webpack",
-    "start": "node"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
