@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "hack": "webpack && webpack-dev-server --inline",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "start": "webpack"
   },
   "repository": {
     "type": "git",
