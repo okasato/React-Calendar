@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    path: `${__dirname}/dist`,
+    path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
   },
   devServer: {
@@ -22,6 +24,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [' ', '.js', '.jsx']
+    extensions: ['.webpack.js', ' ', '.js', '.jsx']
   }
 };
