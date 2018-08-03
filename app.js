@@ -10,7 +10,7 @@ app.use("*",(req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, './dist')));
 
 const server = app.listen(PORT, () => {
   console.log(`Server up and listening on port ${PORT}`);
