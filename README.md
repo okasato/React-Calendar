@@ -1,6 +1,6 @@
 # React Material-Ui Calendar
 
- This is a calendar used by React and Material-Ui.
+ This is a calendar created by React and Material-Ui.
 
   ![Screen shot](imgForReadme/usage_1.png)
 
